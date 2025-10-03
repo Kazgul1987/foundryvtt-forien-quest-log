@@ -126,7 +126,7 @@
     }
   ],
   "socket": true,
-  "manifest": "https://raw.githubusercontent.com/Kazgul1987/foundryvtt-forien-quest-log/main/module.json",
+  "manifest": "https://raw.githubusercontent.com/Kazgul1987/foundryvtt-forien-quest-log/master/module.json",
   "download": "https://github.com/Kazgul1987/foundryvtt-forien-quest-log/releases/latest/download/module.zip",
   "protected": false,
   "coreTranslation": false,
