@@ -1,7 +1,12 @@
 <header>
   <h1 style="flex: 1;">{{fql_format 'ForienQuestLog.QuestLog.Labels.TableHeader' (localize (lookup questStatusI18n tab))}}</h1>
   {{#if (or isGM canCreate)}}
-    <button class="new-quest-btn"><i class="fas fa-plus"></i> {{localize 'ForienQuestLog.QuestLog.Buttons.AddQuest'}}</button>
+    <div class="quest-actions">
+      <button class="new-quest-btn"><i class="fas fa-plus"></i> {{localize 'ForienQuestLog.QuestLog.Buttons.AddQuest'}}</button>
+      {{#if isGM}}
+        <button class="import-quest-btn"><i class="fas fa-file-import"></i> {{localize 'ForienQuestLog.QuestLog.Buttons.ImportQuest'}}</button>
+      {{/if}}
+    </div>
   {{/if}}
 </header>
 <div class="table">

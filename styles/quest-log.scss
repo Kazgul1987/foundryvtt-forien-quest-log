@@ -86,6 +86,11 @@
         padding-bottom: 4px;
       }
 
+      .quest-actions {
+        display: flex;
+        gap: 8px;
+      }
+
       button {
         flex: 0 0 fit-content;
       }
