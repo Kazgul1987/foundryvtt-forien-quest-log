@@ -126,6 +126,7 @@ export class QuestLog extends foundry.appv1.api.Application
       }
 
       html.on(jquery.click, '.new-quest-btn', HandlerLog.questAdd);
+      html.on(jquery.click, '.import-quest-btn', HandlerLog.questImport);
 
       html.on(jquery.click, '.actions.quest-status i.delete', HandlerLog.questDelete);
 

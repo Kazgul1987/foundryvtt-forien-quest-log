@@ -83,7 +83,13 @@
     },
     "QuestLog": {
       "Buttons": {
-        "AddQuest": "Add Quest"
+        "AddQuest": "Add Quest",
+        "ImportQuest": "Import Quests"
+      },
+      "Notifications": {
+        "ImportFailure": "No quests were imported. Please verify the JSON file.",
+        "ImportPartial": "Imported {success} quest(s); {fail} quest(s) could not be processed.",
+        "ImportSuccess": "Successfully imported {count} quest(s)."
       },
       "ContextMenu": {
         "CopyEntityLink": "Copy entity content link",
