@@ -219,6 +219,8 @@ export class HandlerLog
       {
          if (Array.isArray(payload.quests)) { return payload.quests; }
          if (Array.isArray(payload.data)) { return payload.data; }
+         const flagQuest = payload.flags?.['forien-quest-log']?.quest;
+         if (flagQuest && typeof flagQuest === 'object') { return [flagQuest]; }
          return [payload];
       }
 
