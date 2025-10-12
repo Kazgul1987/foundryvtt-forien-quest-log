@@ -178,9 +178,11 @@ export class HandlerLog
             continue;
          }
 
+         const fallbackName = typeof file.name === 'string' ? file.name.replace(/\.[^./\\]+$/, '').trim() : '';
+
          for (const questData of questPayloads)
          {
-            const sanitized = HandlerLog.#sanitizeQuestData(questData);
+            const sanitized = HandlerLog.#sanitizeQuestData(questData, fallbackName);
 
             if (!sanitized)
             {
@@ -231,16 +233,18 @@ export class HandlerLog
     * Sanitizes quest data to match the expected schema.
     *
     * @param {unknown} data - The raw quest data.
+    * @param {string} [fallbackName] - Optional fallback quest name when data is missing a valid name.
     *
     * @returns {object|null} Sanitized quest data or null when invalid.
     */
-   static #sanitizeQuestData(data)
+   static #sanitizeQuestData(data, fallbackName = '')
    {
       if (!data || typeof data !== 'object') { return null; }
 
       const questData = foundry.utils.duplicate(data);
 
       const name = typeof questData.name === 'string' ? questData.name.trim() : '';
+      const fallback = typeof fallbackName === 'string' ? fallbackName.trim() : '';
       const status = typeof questData.status === 'string' && Object.values(questStatus).includes(questData.status) ?
        questData.status : questStatus.inactive;
 
@@ -249,7 +253,7 @@ export class HandlerLog
         questData.type.trim() : null;
 
       const sanitized = {
-         name: name.length > 0 ? name : game.i18n.localize('ForienQuestLog.API.QuestDB.Labels.NewQuest'),
+         name: name.length > 0 ? name : fallback.length > 0 ? fallback : game.i18n.localize('ForienQuestLog.API.QuestDB.Labels.NewQuest'),
          status,
          giver: typeof questData.giver === 'string' && questData.giver.trim().length > 0 ? questData.giver.trim() : null,
          giverData: HandlerLog.#sanitizeGiverData(questData.giverData),
