@@ -63,6 +63,19 @@
             </p>
           {{/if}}
         </div>
+        <div class="quest-category-row">
+          <p class="quest-category-label">{{localize 'ForienQuestLog.QuestPreview.Labels.Category'}}</p>
+          {{#if (or canEdit playerEdit)}}
+            <select class="quest-category-select">
+              <option value="">{{localize 'ForienQuestLog.QuestPreview.Labels.CategoryNone'}}</option>
+              {{#each questCategories}}
+                <option value="{{this}}" {{#if (eq ../category this)}}selected{{/if}}>{{this}}</option>
+              {{/each}}
+            </select>
+          {{else}}
+            <p class="quest-category-value">{{#if category}}{{category}}{{else}}{{localize 'ForienQuestLog.QuestPreview.Labels.CategoryNone'}}{{/if}}</p>
+          {{/if}}
+        </div>
       </div>
 
       {{#if splash.length}}

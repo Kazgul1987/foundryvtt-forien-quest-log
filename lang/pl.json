@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} Misje",
-        "SubTitle": "Zadanie podrzędne z {0}"
+        "SubTitle": "Zadanie podrzędne z {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Dziennik Misji",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Cele:",
         "PlayerNotes": "Notatki Gracza:",
         "Reward": "Nagroda",
-        "Rewards": "Nagrody:"
+        "Rewards": "Nagrody:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Dodaj misję podrzędną",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Zezwalaj na edycję misji zaufanych graczy",
         "EnableHint": "Zaznacz, aby zaufani gracze mogli mieć rozszerzone możliwości edycji misji i kontroli statusu nad misjami, których są właścicielami."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

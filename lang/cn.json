@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0}任务",
-        "SubTitle": "{0}的子任务"
+        "SubTitle": "{0}的子任务",
+        "NoCategory": "Uncategorized"
       },
       "Title": "任务栏",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "目标：",
         "PlayerNotes": "玩家笔记：",
         "Reward": "报酬",
-        "Rewards": "奖励："
+        "Rewards": "奖励：",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "新建支线任务",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "允许可信玩家任务编辑",
         "EnableHint": "检查以允许受信任的玩家对他们拥有的任务拥有扩展的任务编辑和状态控制功能。"
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

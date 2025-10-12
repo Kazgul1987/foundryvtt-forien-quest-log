@@ -316,6 +316,75 @@ export class Utils
    }
 
    /**
+    * Retrieves the configured quest categories from module settings.
+    *
+    * @returns {string[]} Sanitized quest categories.
+    */
+   static getQuestCategories()
+   {
+      const raw = game.settings.get(constants.moduleName, settings.questCategories);
+
+      return Utils.#normalizeQuestCategories(raw);
+   }
+
+   /**
+    * Normalizes user supplied quest categories to a trimmed, unique array of strings.
+    *
+    * @param {unknown} value - Potential quest categories value.
+    *
+    * @returns {string[]} Sanitized quest categories.
+    */
+   static #normalizeQuestCategories(value)
+   {
+      /** @type {string[]} */
+      const values = [];
+
+      if (Array.isArray(value))
+      {
+         values.push(...value);
+      }
+      else if (typeof value === 'string')
+      {
+         try
+         {
+            const parsed = JSON.parse(value);
+            if (Array.isArray(parsed))
+            {
+               values.push(...parsed);
+            }
+            else
+            {
+               values.push(...value.split(/[\n,]/));
+            }
+         }
+         catch (_error)
+         {
+            values.push(...value.split(/[\n,]/));
+         }
+      }
+      else if (value && typeof value === 'object')
+      {
+         values.push(...Object.values(value));
+      }
+
+      const seen = new Set();
+      const normalized = [];
+
+      for (const entry of values)
+      {
+         if (typeof entry !== 'string') { continue; }
+
+         const trimmed = entry.trim();
+         if (!trimmed.length || seen.has(trimmed)) { continue; }
+
+         seen.add(trimmed);
+         normalized.push(trimmed);
+      }
+
+      return normalized;
+   }
+
+   /**
     * Sets an image based on boolean setting state for FQL macros.
     *
     * @param {string|string[]}   setting - Setting name.

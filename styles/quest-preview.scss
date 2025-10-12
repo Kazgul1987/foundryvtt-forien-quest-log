@@ -206,6 +206,25 @@
             }
           }
         }
+
+        .quest-category-row {
+          display: flex;
+          align-items: center;
+          padding: 4px 6px 0 6px;
+
+          .quest-category-label {
+            margin: 0 8px 0 0;
+          }
+
+          .quest-category-select {
+            flex: 0 0 auto;
+            min-width: 150px;
+          }
+
+          .quest-category-value {
+            margin: 0;
+          }
+        }
       }
     }
 

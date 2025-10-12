@@ -98,7 +98,8 @@
       },
       "Labels": {
         "TableHeader": "{0} Quests",
-        "SubTitle": "Subquest of {0}"
+        "SubTitle": "Subquest of {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Quest Log",
       "Tooltips": {
@@ -124,7 +125,9 @@
         "Objectives": "Objectives:",
         "PlayerNotes": "Player Notes:",
         "Reward": "Reward",
-        "Rewards": "Rewards:"
+        "Rewards": "Rewards:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Add Subquest",
@@ -264,6 +267,10 @@
       "trustedPlayerEdit": {
         "Enable": "Allow Trusted Player Quest Editing",
         "EnableHint": "Check to allow trusted players to have expanded quest editing and status control capabilities over quests they have ownership."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

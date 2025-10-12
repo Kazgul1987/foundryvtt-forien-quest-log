@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} 퀘스트",
-        "SubTitle": "서브 퀘스트 : {0}"
+        "SubTitle": "서브 퀘스트 : {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "퀘스트 로그",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "목표:",
         "PlayerNotes": "플레이어 노트:",
         "Reward": "보상",
-        "Rewards": "보상:"
+        "Rewards": "보상:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "새 서브 퀘스트 생성",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "신뢰할 수 있는 플레이어의 퀘스트 편집 허용",
         "EnableHint": "신뢰할 수 있는 플레이어가 퀘스트 소유를 넘어 퀘스트 편집 권한 확장과 상태 제어 권한을 허용하도록 하려면 선택하십시오."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

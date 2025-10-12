@@ -244,6 +244,10 @@ export class HandlerLog
       const status = typeof questData.status === 'string' && Object.values(questStatus).includes(questData.status) ?
        questData.status : questStatus.inactive;
 
+      const category = typeof questData.category === 'string' && questData.category.trim().length > 0 ?
+       questData.category.trim() : typeof questData.type === 'string' && questData.type.trim().length > 0 ?
+        questData.type.trim() : null;
+
       const sanitized = {
          name: name.length > 0 ? name : game.i18n.localize('ForienQuestLog.API.QuestDB.Labels.NewQuest'),
          status,
@@ -261,7 +265,8 @@ export class HandlerLog
          location: typeof questData.location === 'string' && questData.location.trim().length > 0 ?
           questData.location.trim() : null,
          priority: Number.isInteger(questData.priority) ? questData.priority : 0,
-         type: typeof questData.type === 'string' && questData.type.trim().length > 0 ? questData.type.trim() : null,
+         category,
+         type: category,
          parent: null,
          subquests: [],
          tasks: HandlerLog.#sanitizeTasks(questData.tasks),

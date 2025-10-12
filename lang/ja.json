@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0}クエスト",
-        "SubTitle": "{0}に含まれています"
+        "SubTitle": "{0}に含まれています",
+        "NoCategory": "Uncategorized"
       },
       "Title": "クエストログ",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "目標：",
         "PlayerNotes": "プレイヤーのメモ：",
         "Reward": "報酬",
-        "Rewards": "報酬："
+        "Rewards": "報酬：",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "サブクエスト追加",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "優良プレイヤークエスト編集権限",
         "EnableHint": "優良プレイヤーとして指定されているPLに所持しているクエストを編集するための上位の権限を付与します。"
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

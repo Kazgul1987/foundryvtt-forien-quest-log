@@ -30,7 +30,7 @@ export class Quest
     *
     * @type {typeof Application}
     * @see Quest.sheet
-    */
+   */
    static #SheetClass;
 
    /**
@@ -45,6 +45,9 @@ export class Quest
 
    /** @type {string} */
    #name;
+
+   /** @type {string|null} */
+   #category;
 
    /**
     * Lookup the Quest giver by UUID and return the data stored in {@link Quest.giverData}.
@@ -340,6 +343,54 @@ export class Quest
    }
 
    /**
+    * Gets the quest category.
+    *
+    * @returns {string|null} Quest category.
+    */
+   get category()
+   {
+      return this.#category ?? null;
+   }
+
+   /**
+    * Sets the quest category.
+    *
+    * @param {string|null|undefined} value - The new category value.
+    */
+   set category(value)
+   {
+      if (typeof value === 'string')
+      {
+         const trimmed = value.trim();
+         this.#category = trimmed.length ? trimmed : null;
+      }
+      else
+      {
+         this.#category = null;
+      }
+   }
+
+   /**
+    * Backwards compatibility alias for quest category.
+    *
+    * @returns {string|null} Quest category.
+    */
+   get type()
+   {
+      return this.category;
+   }
+
+   /**
+    * Backwards compatibility alias for quest category.
+    *
+    * @param {string|null|undefined} value - The new category value.
+    */
+   set type(value)
+   {
+      this.category = value;
+   }
+
+   /**
     * Creates a new Reward and pushes to the reward array.
     *
     * @param {object}   data - The reward data.
@@ -521,10 +572,13 @@ export class Quest
        */
       this.priority = data.priority || 0;
 
+      const category = typeof data.category === 'string' && data.category.trim().length > 0 ?
+       data.category.trim() : typeof data.type === 'string' && data.type.trim().length > 0 ? data.type.trim() : null;
+
       /**
        * @type {string|null}
        */
-      this.type = data.type || null;
+      this.category = category;
 
       /**
        * @type {string|null}
@@ -784,7 +838,8 @@ export class Quest
          splashAsIcon: this.splashAsIcon,
          location: this.location,
          priority: this.priority,
-         type: this.type,
+         category: this.category,
+         type: this.category,
          parent: this.parent,
          subquests: this.subquests,
          tasks: this.tasks,
@@ -1063,7 +1118,9 @@ export class Task
  *
  * @property {number}            priority - Unused / future use for quest priority sorting.
  *
- * @property {string|null}       type - Unused / future use for sorting type of quest.
+ * @property {string|null}       category - Quest category assigned through module settings.
+ *
+ * @property {string|null}       type - Deprecated alias for quest category retained for backwards compatibility.
  *
  * @property {string|null}       parent - The parent quest ID.
  *

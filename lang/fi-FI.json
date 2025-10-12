@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} tehtävää",
-        "SubTitle": "Alitehtävä ({0})"
+        "SubTitle": "Alitehtävä ({0})",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Tehtäväloki",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Tavoitteet:",
         "PlayerNotes": "Pelaajan muistiinpanot:",
         "Reward": "Palkkio",
-        "Rewards": "Palkkiot:"
+        "Rewards": "Palkkiot:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Lisää alitehtävä",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Salli luotetun pelaajan muokata tehtäviä",
         "EnableHint": "Valitse antaaksesi luotetuille pelaajille laajemmat työkalut omistamiensa tehtävien sisällön ja tilan hallintaan."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {
