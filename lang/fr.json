@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "Quêtes {0}",
-        "SubTitle": "Quête faisant parti de : {0}"
+        "SubTitle": "Quête faisant parti de : {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Journal de Quête",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Objectifs :",
         "PlayerNotes": "Notes des joueurs:",
         "Reward": "Récompense",
-        "Rewards": "Récompenses :"
+        "Rewards": "Récompenses :",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Créer une quête secondaire",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Permettre aux joueurs de confiance d'éditer",
         "EnableHint": "Cochez pour permettre aux joueurs de disposer de capacités d'édition et de contrôle du statut des quêtes étendues pour les quêtes dont ils sont propriétaires."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

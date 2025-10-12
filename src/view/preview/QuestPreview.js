@@ -417,6 +417,9 @@ export class QuestPreview extends foundry.appv1.api.FormApplication
          html.on(jquery.click, '.actions-single.quest-name .editable', (event) =>
           HandlerDetails.questEditName(event, this.#quest, this));
 
+         html.on(jquery.change, '.quest-category-select', async (event) =>
+          await HandlerDetails.questCategoryChange(event, this.#quest, this));
+
          html.on(jquery.drop, '.quest-giver-gc', async (event) =>
           await HandlerDetails.questGiverDropDocument(event, this.#quest, this));
 
@@ -643,7 +646,19 @@ export class QuestPreview extends foundry.appv1.api.FormApplication
          playerEdit: this.playerEdit
       };
 
-      return foundry.utils.mergeObject(data, content);
+      const result = foundry.utils.mergeObject(data, content);
+
+      let questCategories = Utils.getQuestCategories();
+      const currentCategory = typeof result.category === 'string' ? result.category : null;
+
+      if (currentCategory && !questCategories.includes(currentCategory))
+      {
+         questCategories = [...questCategories, currentCategory];
+      }
+
+      result.questCategories = questCategories;
+
+      return result;
    }
 
    /**

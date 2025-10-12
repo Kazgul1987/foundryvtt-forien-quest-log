@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "Missioni {0}",
-        "SubTitle": "Missione Annidata di {0}"
+        "SubTitle": "Missione Annidata di {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Log Missioni",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Obiettivi:",
         "PlayerNotes": "Note del giocatore:",
         "Reward": "Ricompensa",
-        "Rewards": "Ricompense:"
+        "Rewards": "Ricompense:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Agg. Missione",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Consenti l'editing delle missioni dei giocatori fidati",
         "EnableHint": "Abilita per consentire ai giocatori fidati di aver funzionalità di modifica delle missioni e controllo dello stato oltre alle missioni di loro proprietà."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

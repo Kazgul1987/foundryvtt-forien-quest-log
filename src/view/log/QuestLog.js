@@ -204,6 +204,11 @@ export class QuestLog extends foundry.appv1.api.Application
     */
    async getData(options = {})
    {
+      const quests = QuestDB.sortCollect();
+      const questCategories = Utils.getQuestCategories();
+
+      const groupedActive = QuestLog.#groupActiveQuests(quests.active, questCategories);
+
       return foundry.utils.mergeObject(super.getData(), {
          options,
          isGM: game.user.isGM,
@@ -214,8 +219,70 @@ export class QuestLog extends foundry.appv1.api.Application
          showTasks: game.settings.get(constants.moduleName, settings.showTasks),
          style: game.settings.get(constants.moduleName, settings.navStyle),
          questStatusI18n,
-         quests: QuestDB.sortCollect()
+         quests,
+         groupedActive
       });
+   }
+
+   /**
+    * Groups active quests by category preserving configured category order.
+    *
+    * @param {Collection<QuestEntry>|undefined} collection - Active quest collection.
+    *
+    * @param {string[]} configuredCategories - Categories configured in module settings.
+    *
+    * @returns {{key: string, label: string, quests: QuestEntry[]}[]} Grouped quests ready for rendering.
+    */
+   static #groupActiveQuests(collection, configuredCategories = [])
+   {
+      const groups = [];
+      const groupMap = new Map();
+      const fallbackKey = '__uncategorized';
+      const fallbackLabel = game.i18n.localize('ForienQuestLog.QuestLog.Labels.NoCategory');
+
+      const ensureGroup = (key, label) =>
+      {
+         if (groupMap.has(key)) { return groupMap.get(key); }
+
+         const group = { key, label, quests: [] };
+         groupMap.set(key, group);
+         groups.push(group);
+
+         return group;
+      };
+
+      const categories = Array.isArray(configuredCategories) ? configuredCategories : [];
+
+      for (const entry of categories)
+      {
+         if (typeof entry !== 'string') { continue; }
+
+         const trimmed = entry.trim();
+         if (!trimmed.length) { continue; }
+
+         ensureGroup(trimmed, trimmed);
+      }
+
+      const entries = Array.isArray(collection?.items) ? collection.items : [];
+
+      for (const entry of entries)
+      {
+         const raw = entry?.quest?.category ?? entry?.quest?.type ?? null;
+         const trimmed = typeof raw === 'string' ? raw.trim() : '';
+
+         if (trimmed.length)
+         {
+            ensureGroup(trimmed, trimmed).quests.push(entry);
+         }
+         else
+         {
+            ensureGroup(fallbackKey, fallbackLabel).quests.push(entry);
+         }
+      }
+
+      const filtered = groups.filter((group) => group.quests.length > 0);
+
+      return filtered.length ? filtered : null;
    }
 
    /**

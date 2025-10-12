@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} Quests",
-        "SubTitle": "Unterquest von {0}"
+        "SubTitle": "Unterquest von {0}",
+        "NoCategory": "Ohne Kategorie"
       },
       "Title": "Questlog",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Ziele:",
         "PlayerNotes": "Spielernotizen:",
         "Reward": "Belohnung",
-        "Rewards": "Belohnungen:"
+        "Rewards": "Belohnungen:",
+        "Category": "Kategorie:",
+        "CategoryNone": "Keine Kategorie"
       },
       "Management": {
         "AddSubquest": "Unterquest hinzufügen",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Erlaube Seriösen Spielern das Bearbeiten von Quests",
         "EnableHint": "Aktivieren, um Seriösen Spielern (Trusted Players) erweiterte Bearbeitungsmöglichkeiten und Statusänderungen für Quests, die sie kontrollieren einzuräumen."
+      },
+      "questCategories": {
+        "Name": "Questkategorien",
+        "Hint": "Legt die verfügbaren Questkategorien fest. Gib ein JSON-Array aus Zeichenketten an (z. B. [\"Hauptquest\",\"Nebenquest\"])."
       }
     },
     "Tooltips": {

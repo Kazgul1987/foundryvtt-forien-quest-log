@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} Uppdrag",
-        "SubTitle": "Deluppdrag till {0}"
+        "SubTitle": "Deluppdrag till {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Uppdragslogg",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Mål:",
         "PlayerNotes": "Spelare-anteckningar:",
         "Reward": "Belöning",
-        "Rewards": "Belöningar:"
+        "Rewards": "Belöningar:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Skapa underuppdrag",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Tillåt pålitlig spelare uppdrag-redigering",
         "EnableHint": "Markera kryssrutan för att tillåta betrodda spelare att ha utökade uppdragsredigerings- och statuskontrollmöjligheter över uppdrag som de äger."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

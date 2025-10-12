@@ -297,6 +297,19 @@ export class ModuleSettings
          }
       });
 
+      game.settings.register(constants.moduleName, settings.questCategories, {
+         name: 'ForienQuestLog.Settings.questCategories.Name',
+         hint: 'ForienQuestLog.Settings.questCategories.Hint',
+         scope: this.#scope.world,
+         config: true,
+         default: ['Main Quest', 'Side Quest'],
+         type: Array,
+         onChange: () =>
+         {
+            ViewManager.renderAll({ questPreview: true });
+         }
+      });
+
       game.settings.register(constants.moduleName, settings.showFolder, {
          name: 'ForienQuestLog.Settings.showFolder.Enable',
          hint: 'ForienQuestLog.Settings.showFolder.EnableHint',

@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "Misiones {0}",
-        "SubTitle": "Sub-Misión de: {0}"
+        "SubTitle": "Sub-Misión de: {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Registro de Misiones",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Objetivos:",
         "PlayerNotes": "Notas del jugador:",
         "Reward": "Recompensa",
-        "Rewards": "Recompensas:"
+        "Rewards": "Recompensas:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Crear Sub-Misión",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Permitir la edición de misiones de jugadores de confianza",
         "EnableHint": "Marcar para permitir que los jugadores de confianza tengan capacidades ampliadas de edición de misiones y control de estado sobre las misiones de las que son propietarios."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

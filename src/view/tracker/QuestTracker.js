@@ -442,6 +442,7 @@ export class QuestTracker extends foundry.appv1.api.Application
             playerEdit: entry.isOwner,
             source: q.giver,
             name: q.name,
+            category: q.category,
             isGM,
             isHidden: q.isHidden,
             isInactive: q.isInactive,

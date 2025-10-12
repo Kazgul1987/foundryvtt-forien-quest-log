@@ -12,9 +12,11 @@ const constants = {
 /**
  * Defines the {@link JQuery} events that are used in FQL.
  *
- * @type {{click: string, dblclick: string, dragstart: string, drop: string, focus: string, focusout: string, mousedown: string}}
+ * @type {{change: string, click: string, dblclick: string, dragenter: string, dragstart: string, drop: string, focus: string,
+ * focusout: string, keydown: string, mousedown: string}}
  */
 const jquery = {
+   change: 'change',
    click: 'click',
    dblclick: 'dblclick',
    dragenter: 'dragenter',
@@ -93,6 +95,7 @@ const settings = {
    navStyle: 'navStyle',
    notifyRewardDrop: 'notifyRewardDrop',
    primaryQuest: 'primaryQuest',
+   questCategories: 'questCategories',
    questTrackerEnable: 'questTrackerEnable',
    questTrackerPinned: 'questTrackerPinned',
    questTrackerPosition: 'questTrackerPosition',
@@ -149,6 +152,8 @@ export { constants, jquery, questStatus, questStatusI18n, questTabIndex, session
  * @property {string}   notifyRewardDrop - Post a notification UI message when rewards are dropped in actor sheets.
  *
  * @property {string}   primaryQuest - Stores the quest ID of a quest that is the current primary quest.
+ *
+ * @property {string}   questCategories - Stores the available quest categories.
  *
  * @property {string}   questTrackerEnable - Enables the quest tracker.
  *

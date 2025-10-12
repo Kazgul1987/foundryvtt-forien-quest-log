@@ -10,8 +10,7 @@
   {{/if}}
 </header>
 <div class="table">
-  <ul>
-    {{#each quests}}
+  {{#*inline "quest-log-row"}}
     {{#with enrich}}
     <li class="drag-quest" data-quest-id="{{id}}" draggable="true">
       {{#if (eq questIconType 'quest-giver')}}
@@ -31,14 +30,30 @@
           <p class="subquest">{{fql_format 'ForienQuestLog.QuestLog.Labels.SubTitle' data_parent.name}}</p>
         {{/if}}
       </div>
-      {{#unless (eq ../../showTasks 'no')}}
-        <div class="open-quest tasks" title="{{localize 'ForienQuestLog.QuestLog.Tooltips.Objectives'}}">{{checkedTasks}}{{#unless (eq ../../showTasks 'onlyCurrent')}}/{{totalTasks}}{{/unless}}</div>
+      {{#unless (eq @root.showTasks 'no')}}
+        <div class="open-quest tasks" title="{{localize 'ForienQuestLog.QuestLog.Tooltips.Objectives'}}">{{checkedTasks}}{{#unless (eq @root.showTasks 'onlyCurrent')}}/{{totalTasks}}{{/unless}}</div>
       {{/unless}}
       {{#if statusActions.length}}
         {{{statusActions}}}
       {{/if}}
     </li>
     {{/with}}
+  {{/inline}}
+
+  {{#if (and groupedQuests (eq tab 'active'))}}
+    {{#each groupedQuests}}
+      <h2 class="quest-category-heading">{{label}}</h2>
+      <ul>
+        {{#each quests}}
+          {{> quest-log-row}}
+        {{/each}}
+      </ul>
     {{/each}}
-  </ul>
+  {{else}}
+    <ul>
+      {{#each quests}}
+        {{> quest-log-row}}
+      {{/each}}
+    </ul>
+  {{/if}}
 </div>

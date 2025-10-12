@@ -75,7 +75,8 @@
       },
       "Labels": {
         "TableHeader": "{0} Missies",
-        "SubTitle": "Sub-missie van {0}"
+        "SubTitle": "Sub-missie van {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Missielogboek",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "PlayerNotes": "Speler-Notities:",
         "Reward": "Beloning",
         "Rewards": "Beloningen:",
-        "DragDropActor": "Acteur, object of journaalboeking hiernaartoe slepen of (links) klikken om als gebruikergedefinieerde bron vast te leggen."
+        "DragDropActor": "Acteur, object of journaalboeking hiernaartoe slepen of (links) klikken om als gebruikergedefinieerde bron vast te leggen.",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Sub-missie toevoegen",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Sta Vertrouwde Spelers toe om missies te wijzigen",
         "EnableHint": "Indien aangevinkt hebben vertrouwde spelers uitgebreide wijzigings- en statusbeheermogelijkheden voor missies die ze in eigendom hebben."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {

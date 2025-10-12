@@ -111,6 +111,16 @@
 
       // For Firefox.
       scrollbar-width: thin;
+
+      .quest-category-heading {
+        margin: 12px 0 4px;
+        font-size: 18px;
+        font-weight: 700;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
     }
   }
 

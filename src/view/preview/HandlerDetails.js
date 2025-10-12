@@ -30,7 +30,7 @@ export class HandlerDetails
     * @param {Quest}             quest - The current quest being manipulated.
     *
     * @param {QuestPreview}      questPreview - The QuestPreview being manipulated.
-    */
+   */
    static questEditName(event, quest, questPreview)
    {
       const target = $(event.target).data('target');
@@ -92,6 +92,31 @@ export class HandlerDetails
             return false;
          }
       });
+   }
+
+   /**
+    * Handles quest category changes.
+    *
+    * @param {JQuery.ChangeEvent} event - JQuery.ChangeEvent.
+    *
+    * @param {Quest}             quest - The current quest being manipulated.
+    *
+    * @param {QuestPreview}      questPreview - The QuestPreview being manipulated.
+    *
+    * @returns {Promise<void>}
+   */
+   static async questCategoryChange(event, quest, questPreview)
+   {
+      const value = $(event.currentTarget).val();
+
+      const normalized = typeof value === 'string' ? value.trim() : '';
+      const category = normalized.length ? normalized : null;
+
+      if (quest.category === category) { return; }
+
+      quest.category = category;
+
+      await questPreview.saveQuest();
    }
 
    /**

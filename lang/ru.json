@@ -78,7 +78,8 @@
       },
       "Labels": {
         "TableHeader": "{0} задания",
-        "SubTitle": "Подзадание у {0}"
+        "SubTitle": "Подзадание у {0}",
+        "NoCategory": "Uncategorized"
       },
       "Title": "Журнал заданий",
       "Tooltips": {
@@ -104,7 +105,9 @@
         "Objectives": "Задачи:",
         "PlayerNotes": "Примечания игрока:",
         "Reward": "Награда",
-        "Rewards": "Награда:"
+        "Rewards": "Награда:",
+        "Category": "Category:",
+        "CategoryNone": "No category"
       },
       "Management": {
         "AddSubquest": "Добавить подзадание",
@@ -244,6 +247,10 @@
       "trustedPlayerEdit": {
         "Enable": "Разрешить доверенным игрокам изменять задания",
         "EnableHint": "Если включено, доверенные игроки будут видеть расширенное управление заданиями, включая управление статусом тех заданий, к которым у них есть доступ."
+      },
+      "questCategories": {
+        "Name": "Quest categories",
+        "Hint": "Define the available quest categories. Provide a JSON array of strings (e.g. [\"Main Quest\",\"Side Quest\"])."
       }
     },
     "Tooltips": {
