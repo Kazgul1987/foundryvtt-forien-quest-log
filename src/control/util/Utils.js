@@ -339,9 +339,28 @@ export class Utils
       /** @type {string[]} */
       const values = [];
 
+      const collectEntries = (entry) =>
+      {
+         if (Array.isArray(entry))
+         {
+            for (const nested of entry)
+            {
+               collectEntries(nested);
+            }
+         }
+         else if (typeof entry === 'string')
+         {
+            values.push(...entry.split(/[\n,]/));
+         }
+         else if (entry && typeof entry === 'object')
+         {
+            collectEntries(Object.values(entry));
+         }
+      };
+
       if (Array.isArray(value))
       {
-         values.push(...value);
+         collectEntries(value);
       }
       else if (typeof value === 'string')
       {
@@ -350,7 +369,7 @@ export class Utils
             const parsed = JSON.parse(value);
             if (Array.isArray(parsed))
             {
-               values.push(...parsed);
+               collectEntries(parsed);
             }
             else
             {
@@ -364,7 +383,7 @@ export class Utils
       }
       else if (value && typeof value === 'object')
       {
-         values.push(...Object.values(value));
+         collectEntries(Object.values(value));
       }
 
       const seen = new Set();
