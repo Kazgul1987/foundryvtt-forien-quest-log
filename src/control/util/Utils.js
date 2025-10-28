@@ -350,7 +350,7 @@ export class Utils
          }
          else if (typeof entry === 'string')
          {
-            values.push(...entry.split(/[\n,]/));
+            values.push(...entry.split(/[\n,;]+/));
          }
          else if (entry && typeof entry === 'object')
          {
@@ -373,12 +373,12 @@ export class Utils
             }
             else
             {
-               values.push(...value.split(/[\n,]/));
+               values.push(...value.split(/[\n,;]+/));
             }
          }
          catch (_error)
          {
-            values.push(...value.split(/[\n,]/));
+            values.push(...value.split(/[\n,;]+/));
          }
       }
       else if (value && typeof value === 'object')
