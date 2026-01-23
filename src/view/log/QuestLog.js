@@ -207,7 +207,11 @@ export class QuestLog extends foundry.appv1.api.Application
       const quests = QuestDB.sortCollect();
       const questCategories = Utils.getQuestCategories();
 
-      const groupedActive = QuestLog.#groupActiveQuests(quests.active, questCategories);
+      const groupedAvailable = QuestLog.#groupQuestsByCategory(quests.available, questCategories);
+      const groupedActive = QuestLog.#groupQuestsByCategory(quests.active, questCategories);
+      const groupedCompleted = QuestLog.#groupQuestsByCategory(quests.completed, questCategories);
+      const groupedFailed = QuestLog.#groupQuestsByCategory(quests.failed, questCategories);
+      const groupedInactive = QuestLog.#groupQuestsByCategory(quests.inactive, questCategories);
 
       return foundry.utils.mergeObject(super.getData(), {
          options,
@@ -220,20 +224,24 @@ export class QuestLog extends foundry.appv1.api.Application
          style: game.settings.get(constants.moduleName, settings.navStyle),
          questStatusI18n,
          quests,
-         groupedActive
+         groupedAvailable,
+         groupedActive,
+         groupedCompleted,
+         groupedFailed,
+         groupedInactive
       });
    }
 
    /**
-    * Groups active quests by category preserving configured category order.
+    * Groups quests by category preserving configured category order.
     *
-    * @param {Collection<QuestEntry>|undefined} collection - Active quest collection.
+    * @param {Collection<QuestEntry>|undefined} collection - Quest collection to group.
     *
     * @param {string[]} configuredCategories - Categories configured in module settings.
     *
     * @returns {{key: string, label: string, quests: QuestEntry[]}[]} Grouped quests ready for rendering.
     */
-   static #groupActiveQuests(collection, configuredCategories = [])
+   static #groupQuestsByCategory(collection, configuredCategories = [])
    {
       const groups = [];
       const groupMap = new Map();
